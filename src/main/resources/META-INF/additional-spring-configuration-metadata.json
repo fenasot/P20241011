@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "custom.open-browser-after-started",
+    "type": "java.lang.String",
+    "description": "是否在啟動 spring 後，嘗試用瀏覽器開啟頁面"
+  },
+  {
+    "name": "custom.develope-mode",
+    "type": "java.lang.String",
+    "description": "是否顯示詳細報錯訊息"
+  }
+]}

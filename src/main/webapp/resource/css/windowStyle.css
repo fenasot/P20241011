@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body {
+	background-color: #FCF2E8 !important; 
+	min-height: 100vh;;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa; 
+    padding: 10px 20px; 
+}
