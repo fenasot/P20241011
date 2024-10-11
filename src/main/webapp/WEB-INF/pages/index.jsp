@@ -10,29 +10,41 @@
 <body>
 	<% String user = (String)session.getAttribute("user"); %>
 
-	<div class="container d-flex justify-content-center align-items-cente" style="height: 100vh;">
-		<div class="d-flex flex-row">	
-			<div class="p-2"><h1>Welcome To My Spring Boot Playground</h1></div>	
-		  <div class="p-2">
-		  <div class="d-flex align-items-center">		
-				<% if(user != null && !user.equals("")) { %>
+
+
+
+
+  <div class="container">
+    <div class="row justify-content-around" style="height: 90vh;">
+      <div class="row justify-content-around" style="">
+        <div id="login-form" class=" d-flex justify-content-center align-items-cente" >
+          <div class="d-flex align-items-center">
+          	<div class="p-2"><h1>Welcome To My Spring Boot Playground</h1></div>	
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-around" style="">
+        <div class="d-flex align-items-center">
+
+	    	<% if(user != null && !user.equals("")) { %>
 				<h2>歡迎您， ${ sessionScope.user }</h2>
-				<h3><a href="${ pageContext.request.contextPath }/login/logout">登出</a></h3>
+				<h3><a href="${ pageContext.request.contextPath }/login/logout">&nbsp;登出</a></h3>
 				<% } else { %>
-				<h2>您還尚未登入，請先登入後才可進行遊戲</h2>
+				<h2>您還尚未登入，請先登入後才可進行遊戲。</h2>
 				<h3><a href="<%= request.getContextPath() %>/login">登入</a></h3>
-				<% } %>
-			</div>		
-			<h3><a href="${ pageContext.request.contextPath }/lottery">遊玩</a></h3>  
-		  </div>
-		</div>
-
-	</div>
-	
-
-	
-	<p><a href="<%= request.getContextPath() %>/lottery">大樂透</a></p>
-
+			<% } %>
+			
+        </div>
+      </div>
+      <div class="row justify-content-around">
+      	<div class="d-flex align-items-center">
+      		<p>	<h3><a href="${ pageContext.request.contextPath }/lottery">&nbsp;遊玩</a></h3> </p>
+      	</div>
+      	
+      </div>
+    </div>
+  </div>
+  
 	<jsp:include page="/templates/footer.jsp"></jsp:include>
 </body>
 </html>
