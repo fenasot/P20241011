@@ -24,7 +24,7 @@
 							<td><input class="form-control" name="numbers" value=""/></td>
 						</tr>
 						<tr>
-							<td><label class="">請輸入要生成的組數，預設為2組</label></td>
+							<td><label class="">請輸入要生成的組數，預設為2組(最多1000組)</label></td>
 							<td><input class="form-control" name="times" value=""></input></td>
 						</tr>
 						<tr>

@@ -16,16 +16,18 @@
   function postLogin() {
     let ajaxForm = document.getElementById("ajaxForm");
     let ajaxFormData = new FormData(ajaxForm);
+    let ajaxErrorMsg = document.getElementById("ajax-errorMsg");
     const data = {};
+    ajaxErrorMsg.innerHTML = "";
 
     if(!ajaxForm.checkValidity()) {
-      document.getElementById("ajax-errorMsg").innerHTML = "帳密欄位格式有誤";
+      ajaxErrorMsg.innerHTML = "帳密欄位格式有誤";
       return;
     }
     
     for(const [key, val] of ajaxFormData.entries()) {
       if(val === "") {
-        document.getElementById("ajax-errorMsg").innerHTML = "帳密欄位不得為空";
+        ajaxErrorMsg.innerHTML = "帳密欄位不得為空";
         return;
       }
       data[key] = val;
@@ -45,15 +47,14 @@
       body: JSON.stringify(data)
     }) 
     .then(response => {
-
-    if (!response.ok) {
-      return response.json().then(errorData => {
-        // 獲取錯誤消息
-        return Promise.reject(errorData.message); // 這裡假設返回的對象中有 message 字段
-      });
-    }
-    // 如果響應是成功的，轉換為 JSON
-    return response.json();
+      if (!response.ok) {
+        return response.json().then(errorData => {
+          // 獲取錯誤消息
+          return Promise.reject(errorData.message); // 這裡假設返回的對象中有 message 字段
+        });
+      }
+      // 如果響應是成功的，轉換為 JSON
+      return response.json();
     })
     .then(msg => {
       window.location.href = baseUrl;
@@ -61,6 +62,7 @@
     .catch(error => {
       console.error(error);
       alert(error);
+      ajaxErrorMsg.innerHTML = error;
       return;
     })
     // ajaxlogin

@@ -178,7 +178,7 @@ public class LotteryService {
 	 * @throws InputParameterException
 	 */
 	private void timesCheck(int times) throws InputParameterException {
-		if((times <= 1) || (times >= 1000)) {
+		if((times < 1) || (times > 1000)) {
 			throw new InputParameterException("輸入的生成組數超出範圍");
 		}
 		this.times = times;

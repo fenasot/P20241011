@@ -28,8 +28,12 @@ public class LotteryController {
 		model.addAttribute("times", times);
 		
 		try {
+			// 輸入限制數字	
 			LotteryService a = new LotteryService(numbers);
+			// 輸入次數
 			ArrayList<int[]> result = a.writeBingo(times);
+			
+			// 回傳結果
 			model.addAttribute("result", result);
 			model.addAttribute("excludeNums", a.getStrExcludeNum());
 		} catch (InputParameterException e) {
